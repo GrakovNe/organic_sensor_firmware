@@ -38,7 +38,9 @@ void report_state() {
             String(temperature).c_str(),
             String(humidity).c_str());
 
-    Serial.print(screen_buffer);
+    if (temperature > 0 && humidity > 0 && temperature < 100 && humidity < 100) {
+        Serial.print(screen_buffer);
+    }
 }
 
 void loop() {

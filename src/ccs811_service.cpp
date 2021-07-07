@@ -25,6 +25,9 @@ void read_ccs_sensor() {
     co2 = ccs811.getCO2();
     tvoc = ccs811.getTVOC();
 }
+
 void set_ccs_sensor_environment_data() {
-    ccs811.setEnvironmentalData(humidity, temperature);
+    if (temperature > 0 && humidity > 0 && temperature < 100 && humidity < 100) {
+        ccs811.setEnvironmentalData(humidity, temperature);
+    }
 }
